@@ -1,0 +1,199 @@
+@mixin flex-center-items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin rainbow-text {
+  background-image: var(--gradient-rainbow);
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+@mixin postcard-theme($color-name) {
+  & > .postcard__side--front > .postcard__heading,
+  & > .postcard__side--front > .postcard__price,
+  & > .postcard__side--front > .postcard__details {
+    background-color: var(--postcard-#{$color-name});
+  }
+  & > .postcard__side--back {
+    background-color: var(--postcard-#{$color-name});
+    @include respond(medium-3-or-touch) {
+      background-color: var(--postcard-#{$color-name}-solid);
+    }
+  }
+}
+
+@mixin margin-bottom-large {
+  margin-bottom: 6rem;
+}
+
+@mixin margin-bottom-medium {
+  margin-bottom: 4rem;
+}
+
+@mixin form-field-style {
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  border: 1px solid $color-primary-purple;
+  background-color: var(--color-light-grey-3);
+}
+
+@mixin footer-social-link-hover-fix($social) {
+  &__link:focus .icon-wrapper &__logo--#{$social},
+  &__link:active .icon-wrapper &__logo--#{$social},
+  &__link:hover .icon-wrapper &__logo--#{$social} {
+    background-color: $color-white;
+    color: var(--color-logo-#{$social});
+  }
+}
+
+@mixin mobile-icon-line($pseudo: 'none') {
+  width: 100%;
+  height: var(--mobile-icon-line-height);
+  background-color: var(--color-grey);
+  border-radius: 1rem;
+  @if $pseudo == 'before' {
+    bottom: var(--mobile-icon-line-gap);
+  }
+  @if $pseudo == 'after' {
+    top: var(--mobile-icon-line-gap);
+  }
+}
+
+// 1em = 16px
+@mixin respond($breakpoint) {
+  // 324px
+  @if $breakpoint == tiny-3 {
+    @media only screen and (max-width: 20.25em) {
+      @content;
+    }
+  }
+
+  // 380px
+  @if $breakpoint == tiny-2 {
+    @media only screen and (max-width: 23.75em) {
+      @content;
+    }
+  }
+
+  // 400px
+  @if $breakpoint == tiny-1 {
+    @media only screen and (max-width: 25em) {
+      @content;
+    }
+  }
+
+  // 460px
+  @if $breakpoint == small-3 {
+    @media only screen and (max-width: 28.75em) {
+      @content;
+    }
+  }
+
+  // 540px
+  @if $breakpoint == small-2 {
+    @media only screen and (max-width: 33.75em) {
+      @content;
+    }
+  }
+
+  // 800px
+  @if $breakpoint == small-1 {
+    @media only screen and (max-width: 50em) {
+      @content;
+    }
+  }
+
+  // 900px
+  @if $breakpoint == medium-3 {
+    @media only screen and (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == medium-3-or-touch {
+    @media only screen and (max-width: 56.25em), only screen and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == larger-than-medium-3 {
+    @media only screen and (min-width: 56.3125em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == larger-than-medium-3-or-hover {
+    @media only screen and (min-width: 56.3125em) and (hover: hover) {
+      @content;
+    }
+  }
+
+  // 1040px
+  @if $breakpoint == medium-2 {
+    @media only screen and (max-width: 65em) {
+      @content;
+    }
+  }
+
+  // 1100px
+  @if $breakpoint == medium-1 {
+    @media only screen and (max-width: 72.5em) {
+      @content;
+    }
+  }
+
+  // 1300px
+  @if $breakpoint == large {
+    @media only screen and (max-width: 81.25em) {
+      @content;
+    }
+  }
+
+  // 2000px
+  @if $breakpoint == very-large {
+    @media only screen and (min-width: 125em) {
+      @content;
+    }
+  }
+
+  // 3000px
+  @if $breakpoint == no-limit {
+    @media only screen and (min-width: 187.5em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == touch-only {
+    @media only screen and (hover: none) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == can-hover {
+    @media only screen and (hover: hover) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == high-res-small-image {
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+      only screen and (min-width: 125em),
+      only print {
+      @content;
+    }
+  }
+
+  @if $breakpoint == high-res-large-image {
+    @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+      only screen and (min-width: 81.25em),
+      only print {
+      @content;
+    }
+  }
+}

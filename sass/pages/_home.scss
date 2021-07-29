@@ -1,0 +1,141 @@
+.section {
+  @include flex-center-items;
+  padding: var(--section-padding);
+}
+
+.features {
+  background-color: $color-white;
+
+  @include respond(small-2) {
+    position: relative;
+  }
+
+  @include respond(tiny-1) {
+    padding: 6rem 1rem;
+  }
+
+  &__heading {
+    width: 80%;
+    @include margin-bottom-medium;
+
+    @include respond(medium-2) {
+      width: 90%;
+    }
+
+    @include respond(small-1) {
+      width: 100%;
+      padding: 0 2rem;
+    }
+
+    @include respond(small-2) {
+      padding: 0;
+      margin-top: 2rem;
+    }
+
+    &__block {
+      display: flex;
+      justify-content: space-between;
+
+      & h2 {
+        margin: 0;
+
+        @include respond(small-2) {
+          margin: 0 2rem;
+        }
+
+        @include respond(tiny-1) {
+          margin: 0;
+        }
+      }
+
+      @include respond(small-2) {
+        justify-content: center;
+      }
+    }
+
+    &__logo {
+      width: var(--logo-width-large);
+
+      @include respond(small-1) {
+        width: var(--logo-width-medium);
+      }
+
+      @include respond(small-2) {
+        &:first-child {
+          position: absolute;
+          top: 2rem;
+          left: 2rem;
+        }
+
+        &:last-child {
+          position: absolute;
+          top: 2rem;
+          right: 2rem;
+        }
+      }
+    }
+  }
+}
+
+.tours {
+  background-color: var(--color-light-grey-3);
+  position: relative;
+
+  @include respond(small-1) {
+    & h2 {
+      margin-top: 3rem;
+    }
+  }
+
+  &__logo {
+    position: absolute;
+    width: var(--logo-width-large);
+
+    &--1 {
+      top: 30%;
+      left: var(--tours-logo-x-position);
+
+      @include respond(medium-3-or-touch) {
+        width: var(--logo-width-medium);
+        top: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      @include respond(small-1) {
+        top: 2.5rem;
+      }
+    }
+
+    &--2 {
+      top: 30%;
+      right: var(--tours-logo-x-position);
+
+      @include respond(medium-3-or-touch) {
+        display: none;
+      }
+    }
+  }
+}
+
+.testimonials {
+  background-color: $color-white;
+}
+
+.contact {
+  background-color: var(--color-light-grey-3);
+
+  &__form {
+    width: 70rem;
+    @include margin-bottom-large;
+
+    @include respond(small-1) {
+      width: 60rem;
+      @include margin-bottom-medium;
+    }
+
+    @include respond(small-2) {
+      width: 100%;
+    }
+  }
+}

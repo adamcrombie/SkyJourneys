@@ -1,0 +1,49 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+
+  @include respond(large) {
+    font-size: 55%;
+  }
+
+  @include respond(medium-1) {
+    font-size: 50%;
+  }
+
+  @include respond(very-large) {
+    font-size: 85%;
+  }
+
+  @include respond(no-limit) {
+    font-size: 100%;
+  }
+}
+
+body {
+  font-family: var(--font-primary);
+  font-weight: var(--font-weight-regular);
+  color: var(--color-grey);
+
+  ion-icon {
+    pointer-events: none;
+  }
+
+  @include respond(no-limit) {
+    width: var(--media-no-limit-width);
+    margin: 0 auto;
+    background-color: var(--color-dark-grey-2);
+  }
+}
+
+::selection {
+  background-color: $color-primary-purple;
+  color: $color-white;
+}

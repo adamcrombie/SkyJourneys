@@ -1,0 +1,51 @@
+.features-grid {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-gap: 6rem;
+  margin: 4rem 0;
+  align-items: start;
+  justify-content: center;
+
+  @include respond(medium-2) {
+    width: 90%;
+  }
+
+  @include respond(tiny-1) {
+    width: 100%;
+  }
+
+  @include respond(tiny-3) {
+    display: flex;
+    flex-direction: column;
+    grid-gap: 4rem;
+    margin: 3rem 0;
+  }
+}
+
+.feature {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  grid-row-gap: 1rem;
+  grid-column-gap: 1.5rem;
+
+  &__text {
+    font-size: 1.5rem;
+    @include respond(tiny-3) {
+      grid-column: 1 / span 2;
+      margin-left: 1rem;
+    }
+  }
+
+  &__icon {
+    color: $color-primary-blue;
+    width: 4rem;
+    height: 4rem;
+    grid-row: 1 / span 2;
+    transform: translateY(-0.4rem);
+
+    @include respond(tiny-3) {
+      grid-row: 1 / 2;
+    }
+  }
+}

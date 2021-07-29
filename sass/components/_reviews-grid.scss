@@ -1,0 +1,104 @@
+.reviews-grid {
+  width: 80%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(40rem, 1fr));
+  grid-row-gap: 4rem;
+  grid-column-gap: 6rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  @include respond(medium-2) {
+    width: 90%;
+  }
+
+  @include respond(small-3) {
+    width: 100%;
+    padding: 0 1rem;
+    grid-row-gap: 2rem;
+  }
+
+  @include respond(tiny-3) {
+    grid-template-columns: 1fr;
+  }
+
+  &__review {
+    font-size: 1.8rem;
+
+    @include respond(small-3) {
+      font-size: 1.6rem;
+    }
+  }
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translate(-1rem, -3rem);
+  &__photo {
+    height: var(--reviewer-photo-height);
+    border-radius: 50%;
+    border: 0.8rem solid $color-white;
+  }
+
+  &__name {
+    font-size: 80%;
+    margin-right: 2rem;
+  }
+}
+
+.speech-bubble {
+  height: 65%;
+  background-color: var(--speech-bubble-blue-background);
+  padding: 3rem 6rem;
+  border-radius: 1rem 1rem 1rem 0rem;
+  position: relative;
+
+  @include respond(small-3) {
+    padding: 2rem 4rem;
+  }
+
+  &::after {
+    content: '';
+    width: 3rem;
+    height: 2rem;
+    background-color: var(--speech-bubble-blue-background);
+    position: absolute;
+    left: var(--reviewer-photo-height);
+    bottom: -2rem;
+    clip-path: polygon(30% 0, 0 100%, 100% 0);
+  }
+
+  &__paragraph {
+    font-style: italic;
+    @include respond(tiny-3) {
+      height: 100%;
+    }
+  }
+
+  &__quote {
+    position: absolute;
+    height: 2rem;
+    top: calc(50% - 2rem);
+
+    @include respond(small-3) {
+      height: 1.5rem;
+    }
+
+    &--open {
+      left: 2rem;
+
+      @include respond(small-3) {
+        left: 1rem;
+      }
+    }
+
+    &--close {
+      right: 3rem;
+
+      @include respond(small-3) {
+        right: 1.5rem;
+      }
+    }
+  }
+}

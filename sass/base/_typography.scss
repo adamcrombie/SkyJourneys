@@ -1,0 +1,123 @@
+%heading {
+  font-weight: var(--font-weight-semi-bold);
+  text-transform: uppercase;
+  color: var(--color-dark-grey-1);
+}
+
+.heading-hero {
+  @extend %heading;
+  font-size: 9rem;
+  letter-spacing: 2rem;
+  margin-bottom: 8rem;
+
+  &.js-loading {
+    animation-play-state: paused;
+  }
+
+  animation: fadeInFromBottom 2s ease-out;
+
+  @include respond(medium-2) {
+    font-size: 8rem;
+    letter-spacing: 1.5rem;
+    @include margin-bottom-large;
+  }
+
+  @include respond(small-1) {
+    font-size: 6rem;
+    letter-spacing: 1rem;
+  }
+
+  @include respond(tiny-1) {
+    letter-spacing: normal;
+  }
+
+  @include respond(tiny-3) {
+    font-size: 5rem;
+  }
+
+  &--main {
+    display: block;
+  }
+
+  &--sub {
+    display: block;
+    font-size: 3rem;
+    font-weight: var(--font-weight-bold);
+    letter-spacing: 1rem;
+    color: var(--color-grey);
+
+    @include respond(medium-2) {
+      font-size: 2.5rem;
+    }
+
+    @include respond(small-1) {
+      font-size: 2rem;
+      letter-spacing: 0.5rem;
+    }
+  }
+}
+
+.heading-2 {
+  @extend %heading;
+  letter-spacing: 0.5rem;
+  font-size: 6rem;
+  @include margin-bottom-large;
+
+  @include respond(medium-2) {
+    font-size: 5rem;
+    @include margin-bottom-medium;
+  }
+
+  @include respond(small-1) {
+    letter-spacing: normal;
+    font-size: 4rem;
+    font-weight: var(--font-weight-semi-bold-2);
+  }
+
+  @include respond(small-2) {
+    text-align: center;
+    margin: 0 2rem 4rem 2rem;
+  }
+
+  @include respond(small-3) {
+    font-size: 3.5rem;
+  }
+
+  @include respond(tiny-2) {
+    font-size: 3rem;
+  }
+}
+
+.heading-3 {
+  @extend %heading;
+  font-size: 2.2rem;
+
+  @include respond(tiny-3) {
+    font-size: 2rem;
+  }
+}
+
+.rainbow-text {
+  @include rainbow-text;
+}
+
+.paragraph-large {
+  width: 70%;
+  line-height: 180%;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+
+  @include respond(medium-2) {
+    width: 80%;
+  }
+
+  @include respond(small-2) {
+    text-align: center;
+  }
+
+  @include respond(small-1) {
+    width: 90%;
+    font-size: 1.8rem;
+    line-height: 160%;
+  }
+}

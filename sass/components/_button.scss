@@ -1,0 +1,157 @@
+%btn {
+  &,
+  &:link,
+  &:visited {
+    text-decoration: none;
+    display: inline-block;
+    font-weight: var(--font-weight-semi-bold);
+  }
+}
+
+.btn-header {
+  @extend %btn;
+
+  &,
+  &:link,
+  &:visited {
+    text-transform: uppercase;
+    padding: 2rem 2rem;
+    font-size: 2rem;
+    color: var(--color-grey);
+    border-radius: 1.5rem;
+    background-color: $color-primary-orange;
+    transition: all 0.4s;
+
+    &.js-loading {
+      animation-play-state: paused;
+    }
+
+    animation: fadeIn 4s ease-out;
+
+    @include respond(small-1) {
+      font-size: 1.6rem;
+      padding: 1.5rem 1.8rem;
+    }
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-black-large);
+
+    @include respond(small-1) {
+      box-shadow: var(--shadow-black-medium);
+    }
+  }
+
+  &:focus,
+  &:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-black-large-pressed);
+
+    @include respond(small-1) {
+      box-shadow: var(--shadow-black-medium-pressed);
+    }
+  }
+}
+
+.btn-postcard {
+  @extend %btn;
+
+  &,
+  &:link,
+  &:visited {
+    padding: 0.2rem 0.8rem;
+    font-size: 1.5rem;
+    color: var(--color-dark-grey-1);
+    border-radius: 0.5rem;
+    border: 1px solid transparent;
+    transition: all 0.3s;
+  }
+
+  &:focus,
+  &:hover {
+    border: 1px solid var(--color-dark-grey-1);
+  }
+
+  &--orange:focus,
+  &--orange:hover {
+    background-color: var(--postcard-orange-button-highlight);
+  }
+
+  &--blue:focus,
+  &--blue:hover {
+    background-color: var(--postcard-blue-button-highlight);
+  }
+
+  &--green:focus,
+  &--green:hover {
+    background-color: var(--postcard-green-button-highlight);
+  }
+}
+
+.btn-rainbow {
+  @extend %btn;
+
+  &,
+  &:link,
+  &:visited {
+    font-size: 3rem;
+    color: var(--color-light-grey-1);
+    transition: all 0.3s;
+
+    @include respond(small-1) {
+      font-size: 2.5rem;
+    }
+
+    @include respond(tiny-2) {
+      font-size: 2rem;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    @include rainbow-text;
+  }
+}
+
+.btn-form {
+  @extend %btn;
+
+  &,
+  &:link,
+  &:visited {
+    font-family: inherit;
+    text-transform: uppercase;
+    padding: 1.5rem 3rem;
+    border-radius: 1rem;
+    color: $color-white;
+    border: none;
+    font-size: 1.8rem;
+    letter-spacing: 0.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-black-small);
+  }
+
+  &:active,
+  &:focus {
+    transform: translateY(0);
+    box-shadow: var(--shadow-black-small-pressed);
+  }
+
+  &--purple {
+    &,
+    &:link,
+    &:visited {
+      background-color: $color-primary-purple;
+    }
+
+    &:hover {
+      background-color: lighten($color-primary-purple, 6%);
+    }
+  }
+}

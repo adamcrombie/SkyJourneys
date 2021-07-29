@@ -1,0 +1,273 @@
+.postcards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row-gap: 4rem;
+  grid-column-gap: 6rem;
+  @include margin-bottom-large;
+}
+
+.postcard {
+  height: var(--postcard-height);
+  width: var(--postcard-width);
+  position: relative;
+  perspective: 180rem;
+  -moz-perspective: 180rem;
+
+  &:first-child {
+    grid-column: 1 / span 2;
+    justify-self: center;
+    @include postcard-theme('orange');
+  }
+
+  &:nth-child(2) {
+    @include postcard-theme('blue');
+  }
+
+  &:nth-child(3) {
+    @include postcard-theme('green');
+  }
+
+  &__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-postcard);
+    transition: all 1.2s ease-in-out;
+
+    &--front {
+      color: $color-white;
+    }
+
+    &--back {
+      transform: rotateY(180deg);
+    }
+  }
+
+  @include respond(larger-than-medium-3-or-hover) {
+    &:hover &__side--front {
+      transform: rotateY(-180deg);
+    }
+
+    &:hover &__side--back {
+      transform: rotateY(0deg);
+    }
+  }
+
+  &__image {
+    background-size: cover;
+    background-position: bottom;
+
+    &--1 {
+      background-image: url(../img/bagan-lowres.jpg);
+
+      @include respond(high-res-small-image) {
+        background-image: url(../img/bagan.jpg);
+      }
+    }
+
+    &--2 {
+      background-image: url(../img/paris-lowres.jpg);
+
+      @include respond(high-res-small-image) {
+        background-image: url(../img/paris.jpg);
+      }
+    }
+
+    &--3 {
+      background-image: url(../img/norway-lowres.jpg);
+
+      @include respond(high-res-small-image) {
+        background-image: url(../img/norway.jpg);
+      }
+    }
+
+    &.lazyload {
+      background-image: none;
+    }
+  }
+
+  &__heading {
+    text-align: center;
+    border-radius: 2rem;
+    color: inherit;
+  }
+
+  &__price {
+    position: absolute;
+    top: 7rem;
+    right: 1rem;
+    padding: 1rem 2rem;
+    color: inherit;
+    font-weight: var(--font-weight-light);
+    font-size: 2rem;
+    border-radius: 50%;
+    @include flex-center-items;
+
+    &__amount {
+      font-size: 150%;
+    }
+
+    &__unit {
+      font-size: 50%;
+    }
+  }
+
+  &__details {
+    margin-top: 6rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1rem 10rem 10rem 1rem;
+    width: 60%;
+    color: inherit;
+
+    ul {
+      list-style: none;
+    }
+
+    &--icon {
+      margin-right: 0.8rem;
+      transform: translateY(0.4rem);
+      font-size: 1.8rem;
+    }
+
+    &--text {
+      font-size: 1.5rem;
+      line-height: 3rem;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 1.4rem;
+    right: 1rem;
+  }
+}
+
+.postcard-review {
+  color: var(--color-dark-grey-1);
+  padding: 0.5rem 1rem 0.5rem 0;
+  margin: 0.5rem 0;
+  border: 1px solid var(--color-dark-grey-1);
+  border-radius: 0.5rem;
+  &__quote {
+    height: 0.8rem;
+    margin-bottom: 0.5rem;
+
+    @include respond(small-3) {
+      display: none;
+    }
+  }
+
+  &__paragraph {
+    font-size: 1.4rem;
+    padding: 0 1.5rem;
+    font-style: italic;
+  }
+
+  &__guest {
+    margin-top: 0.5rem;
+    text-align: right;
+    font-size: 1.2rem;
+  }
+}
+
+@include respond(medium-3-or-touch) {
+  .postcards {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 0 calc(50% - var(--postcard-width));
+  }
+
+  .postcard {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+
+    &__side {
+      position: relative;
+      height: var(--postcard-height);
+      width: var(--postcard-width);
+      transition: none;
+
+      @include respond(small-3) {
+        width: 100%;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+      &--front {
+        z-index: 100;
+        align-self: flex-start;
+        margin-left: 2rem;
+
+        @include respond(small-3) {
+          margin: 0;
+          padding: 1rem 0 0 0;
+          height: 40.5rem;
+        }
+      }
+
+      &--back {
+        transform: rotateY(0deg);
+        z-index: 200;
+        align-self: flex-end;
+        margin-right: 2rem;
+        transform: translateY(-2rem);
+
+        @include respond(small-3) {
+          margin: 0;
+          transform: translateY(0);
+          height: 100%;
+          padding: 1rem 1.5rem;
+        }
+      }
+    }
+
+    @include respond(small-3) {
+      &__btn {
+        position: relative;
+        margin: 3rem 0 0 50%;
+        transform: translateX(-50%);
+      }
+
+      &__details {
+        position: absolute;
+        bottom: 0;
+        margin: 0 auto;
+        border-radius: 0;
+        width: 100%;
+        text-align: center;
+
+        & ul li {
+          display: inline-block;
+          margin-left: 2rem;
+        }
+
+        &--icon {
+          transform: translateY(2px);
+          font-size: 1.8rem;
+        }
+
+        &--text {
+          line-height: normal;
+        }
+      }
+
+      &__image {
+        background-position: right bottom;
+
+        &--3 {
+          background-position: center bottom;
+        }
+      }
+    }
+  }
+}

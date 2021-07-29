@@ -1,0 +1,33 @@
+.header {
+  height: 100vh;
+  background-image: var(--gradient-hero), url(../img/hero-lowres.jpg);
+
+  @include respond(high-res-large-image) {
+    &.lazyload {
+      background-image: var(--gradient-hero), url(../img/hero-lowres.jpg);
+    }
+
+    background-image: var(--gradient-hero), url(../img/hero.jpg),
+      url(../img/hero-lowres.jpg);
+  }
+
+  background-size: cover;
+  background-position: top;
+  position: relative;
+
+  @include respond(small-1) {
+    background-position: 35% 0%;
+  }
+
+  @include respond(small-2) {
+    background-position: 45% 0%;
+  }
+
+  &__heading-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}

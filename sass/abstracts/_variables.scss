@@ -1,0 +1,145 @@
+$color-primary-red: #ff595e;
+$color-primary-orange: #ffca3a;
+$color-primary-green: #8ac926;
+$color-primary-blue: #1982c4;
+$color-primary-purple: #6a4c93;
+
+$color-black: #000;
+$color-white: #fff;
+
+:root {
+  --color-light-grey-3: #efefef;
+  --color-light-grey-2: #aaa;
+  --color-light-grey-1: #888;
+  --color-grey: #555;
+  --color-dark-grey-1: #444;
+  --color-dark-grey-2: #343434;
+
+  --color-logo-linkedin: rgb(40, 103, 178);
+  --color-logo-facebook: rgb(66, 103, 178);
+  --color-logo-twitter: rgb(29, 161, 242);
+
+  --font-primary: 'Poppins', sans-serif;
+
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-semi-bold: 500;
+  --font-weight-semi-bold-2: 600;
+  --font-weight-bold: 700;
+
+  --gradient-hero: #{linear-gradient(
+      to right top,
+      rgba($color-primary-blue, 0.75),
+      rgba($color-primary-orange, 0.75) 70%
+    )};
+
+  --gradient-mobile-menu: #{linear-gradient(
+      to right top,
+      $color-primary-blue,
+      $color-primary-orange 70%
+    )};
+
+  --gradient-rainbow: #{linear-gradient(
+      to right,
+      $color-primary-red,
+      $color-primary-orange,
+      $color-primary-green,
+      $color-primary-blue,
+      $color-primary-purple
+    )};
+
+  --speech-bubble-blue-background: #{rgba($color-primary-blue, 0.1)};
+
+  --form-background-color: #{rgba($color-primary-purple, 0.3)};
+
+  --postcard-alpha: 0.7;
+
+  @include respond(small-3) {
+    --postcard-alpha: 0.8;
+  }
+
+  --postcard-orange: #{rgba(
+      darken($color-primary-orange, 10%),
+      var(--postcard-alpha)
+    )};
+
+  --postcard-orange-button-highlight: #{rgba(
+      lighten($color-primary-orange, 10%),
+      var(--postcard-alpha)
+    )};
+
+  --postcard-orange-solid: #{$color-primary-orange};
+
+  --postcard-blue: #{rgba(
+      lighten($color-primary-blue, 5%),
+      var(--postcard-alpha)
+    )};
+
+  --postcard-blue-button-highlight: #{rgba(
+      lighten($color-primary-blue, 25%),
+      var(--postcard-alpha)
+    )};
+
+  --postcard-blue-solid: #{lighten($color-primary-blue, 20%)};
+
+  --postcard-green: #{rgba(
+      darken($color-primary-green, 8%),
+      var(--postcard-alpha)
+    )};
+
+  --postcard-green-button-highlight: #{rgba(
+      $color-primary-green,
+      var(--postcard-alpha)
+    )};
+
+  --postcard-green-solid: #{$color-primary-green};
+
+  --shadow-black-large: 0 0 4rem 2rem #{rgba($color-black, 0.3)};
+  --shadow-black-large-pressed: 0 0 2rem 1rem #{rgba($color-black, 0.3)};
+
+  --shadow-black-medium: 0 0 2rem 1rem #{rgba($color-black, 0.3)};
+  --shadow-black-medium-pressed: 0 0 1rem 0.5rem #{rgba($color-black, 0.3)};
+
+  --shadow-black-small: 0 1rem 2rem #{rgba($color-black, 0.3)};
+  --shadow-black-small-pressed: 0 0.5rem 1rem #{rgba($color-black, 0.3)};
+
+  --shadow-postcard: 1.5rem 2rem 1rem #{rgba($color-black, 0.4)};
+
+  --shadow-form: 1rem 2rem 4rem 0rem #{rgba($color-black, 0.15)};
+
+  --section-padding: 6rem 0;
+
+  --reviewer-photo-height: 12rem;
+
+  --tours-logo-x-position: calc(50vw - 48rem);
+
+  @include respond(no-limit) {
+    --tours-logo-x-position: 45rem;
+  }
+
+  --logo-width-xlarge: 9rem;
+  --logo-width-large: 8rem;
+  --logo-width-medium: 6rem;
+  --logo-width-small: 4rem;
+
+  --postcard-width: 48rem;
+  --postcard-height: 27rem;
+
+  --mobile-icon-line-gap: 1.5rem;
+  --mobile-icon-line-height: 4px;
+  --mobile-icon-line-width: 4.5rem;
+
+  @include respond(small-3) {
+    --mobile-icon-background-diameter: 6rem;
+    --mobile-icon-line-width: 3.5rem;
+    --mobile-icon-line-gap: 1rem;
+    --mobile-icon-line-height: 2px;
+  }
+
+  --mobile-icon-box-height: calc(
+    var(--mobile-icon-line-height) + 2 * var(--mobile-icon-line-gap)
+  );
+  --mobile-icon-background-diameter: 8rem;
+
+  --media-no-limit-width: 180rem;
+}
