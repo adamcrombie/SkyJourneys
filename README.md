@@ -10,7 +10,7 @@ The main aim was to focus on using CSS and to demonstrate techniques with respon
 
 ## Technologies
 
-This is mainly CSS, organised with Sass. A small bit of Javascript is used only for navigation and lazy loading images. As you can see from the package.json, there is no polyfilling or transpiling etc, only prefixing and compressing.
+This is mainly CSS, organised with Scss. A small bit of Javascript is used only for navigation and lazy loading images. As you can see from the package.json, there is no polyfilling or transpiling etc, only prefixing and compressing.
 
 ## Key Features
 
